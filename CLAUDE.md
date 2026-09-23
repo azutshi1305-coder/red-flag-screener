@@ -18,7 +18,13 @@ and explain every line in interviews. So:
 - Libraries: pandas, numpy, yfinance, openpyxl, matplotlib, jupyter, pytest.
 
 ## Folder structure
-- data/raw: untouched downloads (never edit these)
+- data/ (top level): small input files committed to GitHub so the project is
+  reproducible. Do not move these into data/raw.
+  - nifty_pharma_list.csv: official Nifty Pharma constituents list,
+    downloaded by hand from NSE (never edit)
+  - companies.csv: ticker list built from it by src/prepare_companies.py
+- data/raw: files our scripts download automatically (e.g. from yfinance).
+  Gitignored, never edited, and can be re-created by re-running the scripts.
 - data/processed: cleaned tables, ratios, scores
 - src: reusable Python functions
 - notebooks: exploration and charts
